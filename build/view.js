@@ -3,31 +3,18 @@ var __webpack_exports__ = {};
 /*!*********************!*\
   !*** ./src/view.js ***!
   \*********************/
-/**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
- *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your project doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
- */
-
-/* eslint-disable no-console */
-console.log('Hello World! (from hjude-svg-hero block)');
-/* eslint-enable no-console */
+const block = document.querySelector('.wp-block-hjude-svg-hero');
+const elmnt = document.querySelector('.elmnt');
+window.addEventListener('mousemove', m => {
+  elmnt.setAttribute('x', m.x);
+  elmnt.setAttribute('y', m.y);
+  percentX = m.x / window.innerWidth;
+  percentY = m.y / window.innerHeight;
+  let rot = (percentX + percentY) / 2;
+  console.log(percentX);
+  elmnt.style.transform = `translate(-50%, -50%) rotate(${rot * 360 * 2}deg)`;
+});
+console.log('test');
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map

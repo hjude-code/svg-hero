@@ -5,8 +5,38 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-hjude-svg-hero {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+ .wp-block-hjude-svg-hero{
+	position: relative;
+	cursor: none;
+ }
+
+ .wp-block-hjude-svg-hero svg{
+	width: 100%;
+	height: 100%;
+	position:fixed;
+	left: 0px;
+	top:0px;
+	pointer-events: none;
+	z-index: 50000;
+}
+
+.wp-block-hjude-svg-hero svg .elmnt{
+	transform-box:stroke-box;
+	transform: rotate(45deg);
+	transform-origin: center;
+	fill:red;
+	height: 50px;
+	transition:
+		width 0.5s cubic-bezier(.4,.08,0,1.66),
+		height 0.5s cubic-bezier(.4,.08,0,1.66)
+	;
+}
+
+body:has(a:hover) .wp-block-hjude-svg-hero svg .elmnt{
+	width: 5px;
+	height: 5px;
+	transition:
+		width 0.5s cubic-bezier(.4,.08,0,1.3),
+		height 0.5s cubic-bezier(.4,.08,0,1.3)
+	;
 }
